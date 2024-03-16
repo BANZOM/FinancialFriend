@@ -29,9 +29,10 @@ for search_query in titles:
     for item in search_response['items']:
         if item['id']['kind'] == 'youtube#video':
             video_id = item['id']['videoId']
-            video_link = f'https://www.youtube.com/watch?v={video_id}'
-            video_links.append(video_link)
+            video_links.append(video_id)
 
 # Print the video links
-for link in video_links:
-    print(link)
+# Save the video links in a file
+with open('links.txt', 'w') as file:
+    for link in video_links:
+        file.write(link + '\n')
