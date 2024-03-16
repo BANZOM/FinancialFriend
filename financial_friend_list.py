@@ -11,7 +11,7 @@ api_key = os.getenv('key')  # Replace with your own API key
 youtube = build('youtube', 'v3', developerKey=api_key)
 
 # Define the search query
-titles = ['Stock 4 Retail', 'Groww', 'Rahul Jain', 'Power of Stocks', 'Sunil Miglani', 'Finology', 'Pranjal Kamra', 'Market Gurukul', 'Trading Chanakya']
+titles = ['Stock 4 Retail', 'Groww', 'Rahul Jain Stock Analysis', 'Power of Stocks', 'Sunil Miglani', 'Finology', 'Pranjal Kamra', 'Market Gurukul', 'Trading Chanakya']
 
 video_links = []
 
@@ -33,6 +33,6 @@ for search_query in titles:
 
 # Print the video links
 # Save the video links in a file
-with open('links.txt', 'w') as file:
+with open('links.txt', 'a') as file:
     for link in video_links:
         file.write(link + '\n')
