@@ -1,0 +1,2 @@
+# Cron job for updating file
+0 0 2 * * /usr/bin/python3 financial_friend_list.py
