@@ -10,7 +10,7 @@ function Footer() {
       >
         © 2024 Copyright
         <Link className="text-dark bold" to="">
-        @Disgraphia Prediction Model
+        @FinanceFriend
         </Link>
       </div>
     </footer>

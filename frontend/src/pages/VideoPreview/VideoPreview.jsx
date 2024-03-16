@@ -25,7 +25,7 @@ const VideoPreview = () => {
     <div>
       {videoLinks.map((link, index) => (
         <div key={index} className="m-5">
-          <h2>Video {index + 1}</h2>
+          <h1>LECTURE {index + 1}</h1>
           <iframe
             width="750"
             height="450"

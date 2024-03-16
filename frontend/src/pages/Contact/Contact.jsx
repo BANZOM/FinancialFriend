@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar.jsx";
 import Footer from "../../components/Footer";
-export function Home() {
+export function Contact() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -221,4 +221,4 @@ export function Home() {
   );
 }
 
-export default Home;
+export default Contact;
