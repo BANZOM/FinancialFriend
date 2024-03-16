@@ -5,6 +5,8 @@ import random
 app = Flask(__name__)
 CORS(app)
 
+app.env = 'production'
+
 @app.route('/')
 def return_links():
     with open('./links.txt', 'r') as file:
