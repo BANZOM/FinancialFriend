@@ -59,10 +59,10 @@ const NavBar = () => {
                         Home
                       </Link>
                       <Link
-                        to="/article"
+                        to="/analyzer"
                         className="w-full px-4 py-2 -ml-4 text-neutral-400 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
                       >
-                        Article
+                        Analyzer
                       </Link>
                       <Link
                         to="/community"
@@ -120,10 +120,10 @@ const NavBar = () => {
                 Home
               </Link>
               <Link
-                to="/article"
+                to="/analyzer"
                 className="w-full px-4 py-2 -ml-4 text-neutral-400 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
               >
-                Article
+                Analyzer
               </Link>
               <Link
                 to="/community"
