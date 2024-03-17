@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import random
+import model
 
 app = Flask(__name__)
 CORS(app)
@@ -14,15 +15,19 @@ def return_links():
     random_ids = random.sample(links, 10)
     return jsonify(links=random_ids)
 
-@app.route('/image', methods=['GET', 'POST'])
+@app.route('/upload', methods=['GET', 'POST'])
 def return_image_info():
     if request.method == 'POST':
-        image_link = request.form.get('image_link')
-        # Process the image link and generate output
-        # output = process_image(image_link)
-        return jsonify(output="hello")
+        if 'image' not in request.files:
+            print('no image')
+            return jsonify(output="no image")
+        file = request.files['image']
+        file.save('./FlaskServer/uploaded_image.png')
+        output = model.get_info_from_image('./FlaskServer/uploaded_image.png')
+        print('POST request received')
+        return jsonify(output=output)
     else:
-        return 'Please send a POST request with an image link.'
+        return jsonify(output="no image")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
