@@ -64,12 +64,6 @@ const NavBar = () => {
                       >
                         Analyzer
                       </Link>
-                      <Link
-                        to="/community"
-                        className="w-full px-4 py-2 -ml-4 text-neutral-400 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
-                      >
-                        Chat
-                      </Link>
                     </div>
 
                     {!localStorage.getItem("authToken") ? (
@@ -124,12 +118,6 @@ const NavBar = () => {
                 className="w-full px-4 py-2 -ml-4 text-neutral-400 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
               >
                 Analyzer
-              </Link>
-              <Link
-                to="/community"
-                className="w-full px-4 py-2 -ml-4 text-neutral-400 rounded-md dark:text-gray-300 hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100 dark:focus:bg-gray-800 focus:outline-none"
-              >
-                Chat
               </Link>
             </li>
           </ul>

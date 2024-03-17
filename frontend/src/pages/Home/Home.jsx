@@ -39,13 +39,10 @@ function Home() {
       <div>
         <NavBar/>
       </div>
-      <div className="flex items-center space-x-2 text-2xl justify-content-center font-medium font-serif text-black-500 dark:text-gray-100 m-2"> 
+      <div className="flex items-center space-x-2 text-2xl font-medium font-serif text-black-500 dark:text-gray-100 m-2"> 
       <div>
-      <div className="text-2xl">
+      <div className="text-2xl mx-20">
         Welcome <u>{user.username}</u>,
-      </div>
-      <div>
-        Here's your today's recommendations!!!
       </div>
       </div>
       </div>
