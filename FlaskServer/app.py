@@ -15,6 +15,16 @@ def return_links():
     random_ids = random.sample(links, 10)
     return jsonify(links=random_ids)
 
+@app.route('/search', methods=['GET'])
+def return_links_with_title():
+    with open('./FlaskServer/links1.txt', 'r') as file:
+        links = file.read().splitlines()
+    links = [link.split(':') for link in links]
+    random_links = random.sample(links, 13)
+    random_titles = [link[0] for link in random_links]
+    random_ids = [link[1] for link in random_links]
+    return jsonify(links=random_ids, titles=random_titles)
+
 @app.route('/upload', methods=['GET', 'POST'])
 def return_image_info():
     if request.method == 'POST':
