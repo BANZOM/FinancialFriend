@@ -280,10 +280,17 @@ const GoogleloginUser = asyncHandler(async (req, res) => {
 
 })
 
+const uploadImage = asyncHandler(async (req, res) => {
+  const imagePath = req.file.path; // Path to the uploaded image file
+
+  res.json({ imagePath: imagePath, ok: true });
+});
+
 export {
   sendEmail,
   registerUser,
   loginUser,
   UserProfile,
   GoogleloginUser,
+  uploadImage,
 };
