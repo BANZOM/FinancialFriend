@@ -2,13 +2,12 @@ import Footer from "../../components/Footer";
 import Navbar from "../../components/NavBar/NavBar";
 import { useState } from "react";
 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Analyzer() {
   const [imageUrl, setImageUrl] = useState(null);
-  const [imageAlt, setImageAlt] = useState(null);
-
-  const navigate = useNavigate();
+  const [response, setResponse] = useState("");
+  //   const navigate = useNavigate();
 
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
@@ -25,7 +24,6 @@ function Analyzer() {
           console.log("Image uploaded successfully.");
           // Display the uploaded image
           setImageUrl(URL.createObjectURL(file));
-          setImageAlt(file.name);
         } else {
           // Handle error
           console.error("Error uploading image:", response.statusText);
@@ -36,9 +34,33 @@ function Analyzer() {
       });
   };
 
-  const handleImageSubmit = async () => {
-    console.log(imageAlt);
-    navigate("/");
+  const handleImageSubmit = async (e) => {
+    e.preventDefault();
+    const url = "http://10.243.1.52:5000/upload";
+    const imageFile = document.querySelector('input[type="file"]').files[0]; // Assuming you have an input element of type file for selecting the image
+
+    try {
+      const formData = new FormData();
+      formData.append("image", imageFile);
+
+      const response = await fetch(url, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to upload image");
+      }
+
+      const responseData = await response.json(); // Parse JSON response
+      setResponse(responseData.output);
+
+      console.log(responseData); // Log the response data
+
+      console.log("Image uploaded successfully");
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
   };
 
   return (
@@ -100,13 +122,17 @@ function Analyzer() {
             {imageUrl && (
               <img
                 src={imageUrl}
-                alt={imageAlt}
+                alt={"img"}
                 className="img-fluid displayed-image"
+                style={{ maxHeight: "300px", maxWidth: "300px" }} // Set max height and width
               />
             )}
           </div>
         </div>
       </div>
+
+      <div className="text-center text-2xl font-bold m-5 p-2">{response}</div>
+
       <div className="container d-flex justify-content-center align-items-center vh-100">
         <div className="row"></div>
         <Footer />

@@ -1,4 +1,8 @@
 import { Router } from "express";
+import path from 'path'; 
+import fs from 'fs'; 
+import multer from "multer"; 
+
 import {
   loginUser,
   registerUser,
@@ -7,18 +11,14 @@ import {
   GoogleloginUser,
   uploadImage
 } from "../controllers/user.controller.js";
-import path from 'path'; 
-import fs from 'fs'; 
-
-import multer from "multer"; 
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public/temp'); // Set the destination folder
   },
   filename: (req, file, cb) => {
-    const fileName = file.originalname.trim(); 
-    cb(null, fileName); // Use the sanitized file name
+    // Set the filename to 'image.png' regardless of the original filename
+    cb(null, 'image.png');
   }
 });
 
@@ -49,12 +49,9 @@ const clearTempDirectory = (req, res, next) => {
 const router = Router();
 
 router.route("/signup").post(registerUser);
-
 router.route("/login").post(loginUser);
 router.route("/googlelogin").post(GoogleloginUser);
-
 router.route("/sendemail").post(sendEmail) ;
-
 router.post('/upload', clearTempDirectory, upload.single('image'), uploadImage);
 router.route("/profile").get(UserProfile) ; 
 
