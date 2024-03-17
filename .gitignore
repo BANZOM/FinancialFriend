@@ -128,3 +128,8 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+FlaskServer/venv/
+FlaskServer/.env
+FlaskServer/venv2
+FlaskServer/__pycache__/
